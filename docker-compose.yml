@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: blog:latest
+    image: blogproject:latest
     command: poetry run python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
@@ -22,6 +22,3 @@ services:
       POSTGRES_DB: blog
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: myPassword
-
-volumes:
-  postgres_data:
