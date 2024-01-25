@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.10
+FROM python:3.12
 
 # Set the working directory to /app
 WORKDIR /app
@@ -16,6 +16,8 @@ RUN curl -sSL https://install.python-poetry.org | python -
 
 # Add Poetry bin directory to the PATH
 ENV PATH="${PATH}:/root/.local/bin"
+
+RUN poetry config virtualenvs.create false
 
 # Install project dependencies using Poetry
 RUN poetry install --no-interaction --no-ansi
